@@ -25,14 +25,17 @@ pipeline {
         }
         stage('Run Selenium') {
             steps {
-                sh 'mvn exec:java -Dexec.mainClass="com.example.App"'
+                sh '''
+                export DISPLAY=:0
+                mvn exec:java -Dexec.mainClass="com.example.App"
+                '''
             }
         }
     }
 
     post {
         success {
-            echo "Open SauceDemo: https://www.saucedemo.com"
+            echo "Selenium execution successful!"
         }
         failure {
             echo 'Build failed!'
