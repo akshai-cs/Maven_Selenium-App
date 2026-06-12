@@ -41,7 +41,6 @@ public class App {
             e.printStackTrace();
 
         } finally {
-
             driver.quit();
         }
     }

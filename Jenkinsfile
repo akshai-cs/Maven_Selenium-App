@@ -23,17 +23,16 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Run Application') {
+        stage('Run Selenium') {
             steps {
-                // Start the JAR application
-                sh 'java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar'
+                sh 'mvn exec:java'
             }
         }
     }
 
     post {
         success {
-            echo 'Build and deployment successful!'
+            echo "Open SauceDemo: https://www.saucedemo.com"
         }
         failure {
             echo 'Build failed!'
