@@ -9,7 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class App {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         // Automatically manages matching ChromeDriver
         WebDriverManager.chromedriver().setup();
@@ -17,7 +17,7 @@ public class App {
         // Chrome options for Jenkins/Linux
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless=new");
+        //options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
@@ -41,7 +41,8 @@ public class App {
             e.printStackTrace();
 
         } finally {
-            driver.quit();
+            Thread.sleep(15000);
+	    driver.quit();
         }
     }
 }
