@@ -25,7 +25,10 @@ pipeline {
         }
         stage('Run Selenium') {
             steps {
-                sh 'mvn exec:java -Dexec.mainClass="com.example.App"'
+		sh '''
+                export DISPLAY=:0
+                java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar
+                '''
             }
         }
     }
