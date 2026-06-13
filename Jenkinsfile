@@ -25,10 +25,7 @@ pipeline {
         }
         stage('Run Selenium') {
             steps {
-		sh '''
-                export DISPLAY=:0
-                java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar
-                '''
+		sh 'java -jar target/2023MavenSeleniumApp-1.0-SNAPSHOT.jar'
             }
         }
     }
