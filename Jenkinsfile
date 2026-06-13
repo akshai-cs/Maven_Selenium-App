@@ -33,7 +33,7 @@ pipeline {
     post {
         success {
             echo "Selenium execution successful!"
-	    echo "Open SauceDemo: https://www.saucedemo.com"
+	    echo "https://www.saucedemo.com"
         }
         failure {
             echo 'Build failed!'
